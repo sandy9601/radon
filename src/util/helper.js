@@ -6,7 +6,7 @@ module.exports.PrintDate=PrintDate
 const PrintMonth=function(){
     let today=new Date()
 let mm=today.getMonth() +1
-console.log("current month is  " +  mm)}
+console.log("current month is "+  mm)}
 
 module.exports.PrintMonth=PrintMonth
 
