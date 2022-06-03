@@ -4,8 +4,9 @@ const router = express.Router();
 router.get('/movies/:indexNumber', function(req, res){
     const arr=["thor","hulk","ironman","wonderwomen"]
     let W=req.params
+    console.log(W)
     if(W.indexNumber>arr.length){
-        console.log("please give valid no")
+        console.log("please give valid number")
         res.send("please give valid no")}
         else{
     console.log('requested movie is  '+arr[W.indexNumber])
@@ -77,7 +78,7 @@ router.get('/missing', function(req, res){
     let sumofNumbers=(n*(n+1))/2
 const missingNumber=sumofNumbers-sumofArra
 console.log({data: missingNumber})
-res.send({data: missingNumber})
+res.send({dataa: missingNumber})
     });
     router.get('/missed', function(req, res){
         const arrs=[33,34,35,37,38]
@@ -91,7 +92,7 @@ res.send({data: missingNumber})
         let sumofNumbers=(n*(firstNo+lastNo))/2
     const missingNumber=sumofNumbers-sumofArra
     console.log({data: missingNumber})
-    res.send({data: missingNumber})
+    res.send({dataa: missingNumber})
         });
 
 
