@@ -52,10 +52,15 @@ let players =
 ]
 router.post('/players', function (req, res) {
     let ele=req.body.element
-    //if(ele.name===(players[0].name)){
-    //res.send("player already exist enter new one");
-    //}
-    //else{
+    let nameIsrepeated=false
+    for(i=0;i<players.length;i++){
+        if((players[i].name===ele.name)){
+            nameIsrepeated=true
+            break;}}
+            if(nameIsrepeated){
+    res.send("player already exist enter new one");
+    }
+    else{
     players.push(ele)
-    res.send({messege: players , status: true})});
+    res.send(players)}});
 module.exports = router;
