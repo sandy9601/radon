@@ -23,16 +23,28 @@ const findrange= async function (req, res) {
     //let C_ID= await ABookModel.find({price:{$gte:50,$lte:100}}).select({author_id:1,name:1,_id:0})
      let B_ID= await AuthorModel.find({author_id: A_ID.map(x=>x.author_id)}).select({author_name:1,_id:0})
     res.send({B_ID})}
-    
+
     const books= async function (req, res) {
     let W=req.params
         //console.log(W)
         let A_ID= await ABookModel.find(W).select({name:1,_id:0})
         res.send({A_ID})}
-  
+
+        const updatei= async function (req, res) {
+            let data=req.body
+             let updatei= await ABookModel.findOneAndUpdate(
+        
+                    {name:"sandy"},
+                    {$set:data},
+                    {upsert:true}
+                    )
+                res.send({msg:updatei})}
+
 
 module.exports.CreateBook=CreateBook
 module.exports.twostates=twostates
 module.exports.findrange=findrange
 module.exports.books=books
+module.exports.updatei=updatei
+
 

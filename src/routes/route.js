@@ -22,6 +22,8 @@ router.get("/twostates",BookControle.twostates)
 router.get("/findrange",BookControle.findrange)
 router.get("/books/:author_id", BookControle.books)
 router.get("/AuthorAge", AuthorController.AuthorAge)
+router.post("/updatei",BookControle.updatei)
+
 
 
 
