@@ -34,7 +34,7 @@ const findrange= async function (req, res) {
             let data=req.body
              let updatei= await ABookModel.findOneAndUpdate(
         
-                    {name:"sandy"},
+                    {name:"salman"},
                     {$set:data},
                     {upsert:true}
                     )
