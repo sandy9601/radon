@@ -13,14 +13,31 @@ const createBook= async function (req, res) {
     
      const getbook=async function(req,res){
         let data=req.body
-        let getbook=await (await bookmodel.find().populate('publisher_id')).updatemany
-            
+        let getbook=await bookmodel.find().populate('publisher_id').select({"publisher_id.name":"Penguin"})
+        
         res.send({getbook})
+    }
+
+
+    const agregate=async function(req,res){
+        //let data=req.body
+        let agregate=await bookmodel.aggregate(
+            [
+                
+                    {$group: { _id:"$name",totalNumber:{$sum:"price"}}},
+                    {$sort:{totalNumber:1} }
+            ]
+        )
+        
+        res.send({agregate})
     }
     
     
+
+    
 module.exports.createBook=createBook
 module.exports.getbook= getbook
+module.exports.agregate= agregate
 
   
   
