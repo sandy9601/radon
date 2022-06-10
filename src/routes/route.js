@@ -18,7 +18,7 @@ const bookmodel = require('../models2/bookmodel');
 //router.post("/createAuthor", authorcontroller.createAuthor)
 //router.post("/createpublisher",authorcontroller.createpublisher)
 //router.post("/createBook", bookcontroller.createBook)
-//router.put("/getbook",bookcontroller.getbook)
+router.put("/getbook",bookcontroller.getbook)
 //router.get("/agregate",bookcontroller.agregate)
 router.get("/basicmwapi", authorcontroller.basicmw, authorcontroller.basicmwapi)
 
