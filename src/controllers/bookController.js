@@ -36,16 +36,7 @@ const updateBooks = async function (req, res) {
     res.send({ msg: allBooks })
 }
 
-const deleteBooks = async function (req, res) {
-    // let data = req.body 
-    let allBooks = await BookModel.updateMany(
-        { authorName: "FI" }, //condition
-        { $set: { isDeleted: true } }, //update in data
-        { new: true } ,
-    )
 
-    res.send({ msg: allBooks })
-}
 
 
 
@@ -75,5 +66,5 @@ const totalSalesPerAuthor = async function (req, res) {
 module.exports.createBook = createBook
 module.exports.getBooksData = getBooksData
 module.exports.updateBooks = updateBooks
-module.exports.deleteBooks = deleteBooks
+//module.exports.deleteBooks = deleteBooks
 module.exports.totalSalesPerAuthor = totalSalesPerAuthor
