@@ -42,7 +42,6 @@ const commonMW = require ("../middlewares/commonMiddlewares")
 
 
 
-
 router.get("/basicRoute",  UserController.basicCode)
 
 
