@@ -7,25 +7,15 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzotr.mongodb.net/Pritesh8769811-DB?retryWrites=true&w=majority", {
-    useNewUrlParser: true
+mongoose.connect("mongodb+srv://SandeepDarshanam:9866203258Aa@cluster0.pr0hn.mongodb.net/middleWare?retryWrites=true&w=majority",{
+ useNewUrlParser: true
 })
+
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )
 
 
-
 app.use('/', route);
-
-app.use (
-    function (req, res, next) {
-        console.log ("inside GLOBAL MW");
-        res.send({msg:"done"})
-  }
-  );
-
-
-app.listen(process.env.PORT || 3000, function () {
-    console.log('Express app running on port ' + (process.env.PORT || 3000))
+app.listen(process.env.PORT || 5000, function () {
+    console.log('Express app running on port ' + (process.env.PORT || 5000))
 });
