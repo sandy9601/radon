@@ -12,7 +12,7 @@ router.get("/users/:userId",middleware.auth, userController.getUserData)
 
 router.put("/users/:userId", middleware.auth,userController.updateUser)
 
-router.post("/users/:userId", middleware.auth,userController.Deleteuser)
+router.delete("/users/:userId", middleware.auth,userController.Deleteuser)
 
 
 module.exports = router;
