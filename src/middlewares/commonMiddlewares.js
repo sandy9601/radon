@@ -5,8 +5,14 @@ const validation= function ( req, res, next) {
         if(!free){
             res.send("the request is missing a mandatory header")
         }
-        else{
+        // creating an attribute
+if(free==="true"){
+req.appTypefree=true
+}
+else{
+req.appTypefree=false
+}
     next()
 }
-}
+
 module.exports.validation=validation

@@ -8,7 +8,7 @@ const orderController= require ("../controllers/orderController")
 
 
 router.post("/createUser",commonMW.validation, UserController.createUser)
-router.post("/createproduct", productController.createproduct)
+router.post("/createproduct",commonMW.validation, productController.createproduct)
 router.post("/createorder",commonMW.validation,orderController.createorder)
 
 module.exports = router;
