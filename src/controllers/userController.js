@@ -84,13 +84,6 @@ const Deleteuser = async function (req, res) {
 
 
     let createposts=async function(req,res){
-       // let token=req.headers["x-auth-token"]
-        //let decodetoken=jwt.verify(token , "functionup-radon")
-        //let usertobemodified=decodetoken.userId
-        //let loggeduser=req.params.userId
-        //if (usertobemodified!=loggeduser){
-         //   return res.send({status:false,message:"logged user is different from modifying user"})
-       // }
         let user=await userModel.findById(req.params.userId)
         if(!user){
             return res.send({status:false , message:"no user exist"})
@@ -101,7 +94,6 @@ const Deleteuser = async function (req, res) {
       let updatedUser=await userModel.findOneAndUpdate({_id:req.params.userId},{$set:{posts:updatepost}},{new:true})
 res.send({status:true,message:updatedUser})
     }
-
 
     
 module.exports.createUser = createUser;

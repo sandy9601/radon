@@ -20,4 +20,3 @@ const userSchema = new mongoose.Schema( {
     posts:{type :[],default:[]}
 }, { timestamps: true });
 module.exports = mongoose.model('User', userSchema)
-

@@ -1,5 +1,8 @@
 const jwt = require("jsonwebtoken");
+
 const userModel = require("../models/userModel");
+
+//authentication 
 
 let auth =function(req,res, next){
 let token = req.headers["x-Auth-token"];
@@ -8,16 +11,17 @@ let token = req.headers["x-Auth-token"];
   let decodedToken = jwt.verify(token, "functionup-radon");
   if (!decodedToken)
     return res.send({ status: false, msg: "token is invalid" });
-    let usertobemodified=decodedToken.userId
-        let loggeduser=req.params.userId
-        if (usertobemodified!=loggeduser){
-            return res.send({status:false,message:"logged user is different from modifying user"})
-        }
-    else {
-        next()
-    }}
+else{
+    next()
+}}
+
+//authorization 
+
+
     
     module.exports.auth=auth
+    //module.exports.auth2=auth2
+
 
 
 //If no token is present in the request header return error
