@@ -14,5 +14,6 @@ router.put("/users/:userId", middleware.auth,userController.updateUser)
 
 router.delete("/users/:userId", middleware.auth,userController.Deleteuser)
 
+router.post("/users/:userId/posts",middleware.auth,userController.createposts)
 
 module.exports = router;

@@ -8,6 +8,11 @@ let token = req.headers["x-Auth-token"];
   let decodedToken = jwt.verify(token, "functionup-radon");
   if (!decodedToken)
     return res.send({ status: false, msg: "token is invalid" });
+    let usertobemodified=decodedToken.userId
+        let loggeduser=req.params.userId
+        if (usertobemodified!=loggeduser){
+            return res.send({status:false,message:"logged user is different from modifying user"})
+        }
     else {
         next()
     }}
