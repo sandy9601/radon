@@ -5,14 +5,18 @@ const userModel = require("../models/userModel");
 //authentication 
 
 let auth =function(req,res, next){
+    try{
 let token = req.headers["x-Auth-token"];
   if (!token) token = req.headers["x-auth-token"];
-  if (!token) return res.send({ status: false, msg: "token must be present" });
+  if (!token) return res.status(401).send({ status: false, msg: "token must be present" });
   let decodedToken = jwt.verify(token, "functionup-radon");
   if (!decodedToken)
-    return res.send({ status: false, msg: "token is invalid" });
+    return res.status(400).send({ status: false, msg: "token is invalid" });
 else{
     next()
+}}
+catch(err){
+    res.status(500).send({status:false,error:err.message})
 }}
 
 //authorization 
